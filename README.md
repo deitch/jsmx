@@ -18,8 +18,11 @@ Inside your app, jsmx is nothing more or less than an event emitter (ok, actuall
 3. Send a management event
 
 ````JavaScript
-var mx = require('jsmx');
-mx.listen(port); // if no port is specified, defaults to 9002
+var jsmx = require('jsmx'), mx = jsmx.create();
+mx.listen(port,function(e){
+	// something to do when fully listening
+	// e will contain any error
+}); // if no port is specified, defaults to 9002
 mx.on('someEvent',function(arg){
 	// will be called when 'someEvent' is passed
 	// arg is a single JS object
@@ -39,6 +42,18 @@ You can also do
 	curl http://localhost:9002/foo/bar/baz?a=b&d=1
 
 To get an event 'foo/bar/baz'.
+
+Note that you can create multiple jsmx listeners, each on its own port, using multiple jsmx.create();
+
+Security
+--------
+Very basic security is available in terms of hostname, similar to http.createServer(port,hostname).
+If you want the server to listen only on localhost, listen that way:
+
+````JavaScript
+mx.listen(port,'localhost');
+````
+Eventually, HTTP Auth authentication will be added.
 
 Licensing
 ---------
