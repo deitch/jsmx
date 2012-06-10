@@ -1,0 +1,27 @@
+{
+  "name":"jsmx",
+	"description": "A JavaScript library for listening to and emitting management events in node",
+	"url": "http://github.com/deitch/jsmx",
+	"author": "Avi Deitcher <avi@deitcher.net>",
+  "version":"0.1.0",
+  "engines":{
+    "node":">=0.6"
+  },
+	"main": "./lib/mx.js",
+	"test": "./test.js",
+  "keywords": [ "jsmx", "json", "jmx", "mx"],
+  "homepage": "http://github.com/deitch/jsmx",
+  "contributors" : [ "Avi Deitcher <avi@deitcher.net>"],
+  "bugs": "https://github.com/deitch/jsmx/issues",
+  "dependencies": {
+    "eventemitter2":"0.4.x"
+  },
+  "devDependencies": {
+    "request":">=2.9.202",
+    "nodeunit":">=0.6.4"
+  },
+	"repository": {
+		"type" : "git",
+		"url" : "http://github.com/deitch/jsmx.git"
+	}
+}
