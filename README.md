@@ -11,10 +11,11 @@ npm install jsmx
 
 Usage
 -----
-Inside your app, jsmx is nothing more or less than an event emitter (ok, actually an EventEmitter2 https://github.com/hij1nx/EventEmitter2 ). You need only two steps to get on your way:
+Inside your app, jsmx is nothing more or less than an event emitter (ok, actually an EventEmitter2 https://github.com/hij1nx/EventEmitter2 ). You need only three steps to get on your way:
 
-# Start a listener on a port (default is 9002)
-# Attach an event listener
+1. Start a listener on a port (default is 9002)
+2. Attach an event listener
+3. Send a management event
 
 ````JavaScript
 var mx = require('jsmx');
@@ -32,6 +33,12 @@ The path (after) the initial slash will be the event name, and the parameters wi
     curl http://localhost:9002/foo?a=b&d=1
 
 will create an event "foo" passing the object {a:'b','d':1} to the callbacks
+
+You can also do
+
+	curl http://localhost:9002/foo/bar/baz?a=b&d=1
+
+To get an event 'foo/bar/baz'.
 
 Licensing
 ---------
